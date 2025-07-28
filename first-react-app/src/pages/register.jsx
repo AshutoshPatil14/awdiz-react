@@ -3,7 +3,7 @@ import React from "react";
 function Register() {
   return (
     <div>
-      This is the Register Page
+      <h1>This is the Register Page</h1>
       <form>
         <input type="text" placeholder="Enter your name" />
         <input type="password" placeholder="Create a password" />

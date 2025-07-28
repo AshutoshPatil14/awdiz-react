@@ -3,7 +3,7 @@ import React from "react";
 function Login() {
   return (
     <div>
-      This is the Login Page
+      <h1>This is the Login Page</h1>
       <form>
         <input type="text" placeholder="Enter your name" />
         <input type="password" placeholder="Enter your password" />
