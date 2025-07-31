@@ -21,14 +21,12 @@ function UseState() {
     <div>
       <h1>This is the example of useState</h1>
 
-
       <h4>This is the count ↓</h4>
-      <div>
-        <button onClick={increment}>⬆</button>
+      <div class="btn">
+        <button onClick={decrement}>◀</button>
         <h4>{count}</h4>
-        <button onClick={decrement}>⬇</button>
+        <button onClick={increment}>▶</button>
       </div>
-
       <button onClick={reset}>↺</button>
     </div>
   );
