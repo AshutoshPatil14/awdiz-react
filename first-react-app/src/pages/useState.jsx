@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function UseState() {
-  let [count, setCount] = useState(0);
+  let [count, setCount] = useState(5);
 
   function increment() {
     if (count < 10) {
@@ -22,7 +22,7 @@ function UseState() {
       <h1>This is the example of useState</h1>
 
       <h4>This is the count ↓</h4>
-      <div class="btn">
+      <div className="btn">
         <button onClick={decrement}>◀</button>
         <h4>{count}</h4>
         <button onClick={increment}>▶</button>

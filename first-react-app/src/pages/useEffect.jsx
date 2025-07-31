@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function UseEffect() {
-  let [count, setCount] = useState(0);
+  let [count, setCount] = useState(5);
 
   function increment1() {
     if (count < 10) {
@@ -16,7 +16,7 @@ function UseEffect() {
   // function reset() {
   //   setCount(5);
   // }
-  let [count2, setCount2] = useState(0);
+  let [count2, setCount2] = useState(5);
 
   function increment2() {
     if (count2 < 10) {
@@ -33,25 +33,41 @@ function UseEffect() {
     setCount2(5);
   }
 
+  let [type, setType] = useState("Empty Dependency");
   useEffect(() => {
-    console.log("Hello");
-  });
-  useEffect(() => {
-    console.log("Hello");
+    if (type === "Empty Dependencies") {
+      console.log("Empty Dependencies");
+    }
   }, []);
   useEffect(() => {
-    console.log("Hello");
+    if (type === "No Dependency") {
+      console.log("No Dependency");
+    }
+  });
+  useEffect(() => {
+    if (type === "Single Dependency") {
+      console.log("Single Dependency");
+    }
   }, [count]);
   useEffect(() => {
-    console.log("Hello");
+    if (type === "Multiple Dependencies") {
+      console.log("Multiple Dependencies");
+    }
   }, [count, count2]);
 
   return (
     <div>
       <h1>This is the example of useEffect</h1>
 
+      <div className="sel-btn">
+        <button onClick={() => setType("Empty Dependencies")}>Empty Dependencies</button>
+        <button onClick={() => setType("No Dependency")}>No Dependency</button>
+        <button onClick={() => setType("Single Dependency")}>Single Dependency</button>
+        <button onClick={() => setType("Multiple Dependencies")}>Multiple Dependencies</button>
+      </div>
+
       <h4>This is the count ↓</h4>
-      <div class="btn">
+      <div className="btn">
         <div>
           <button onClick={increment1}>⬆</button>
           <h4>{count}</h4>
@@ -68,4 +84,5 @@ function UseEffect() {
     </div>
   );
 }
+
 export default UseEffect;

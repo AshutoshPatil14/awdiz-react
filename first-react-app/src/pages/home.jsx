@@ -9,12 +9,14 @@ function Home() {
     <div>
       <h1>This is the Homepage</h1>
       <p>Welcome to the web application</p>
-      <button onClick={() => setShow("effect")}>useEffect</button>
-      <button onClick={() => setShow("state")}>useState</button>
-      <button onClick={() => setShow("clear")}>Clear</button>
+      <div className="sel-btn">
+        <button onClick={() => setShow("effect")}>useEffect</button>
+        <button onClick={() => setShow("state")}>useState</button>
+        <button onClick={() => setShow("clear")}>Clear</button>
+      </div>
       {show === "effect" && <UseEffect />}
       {show === "state" && <UseState />}
-      {show === "clear" && <null/>}
+      {show === "clear" && null}
     </div>
   );
 }
