@@ -33,7 +33,7 @@ function UseEffect() {
     setCount2(5);
   }
 
-  let [type, setType] = useState("Empty Dependency");
+  let [type, setType] = useState("Empty Dependencies");
   useEffect(() => {
     if (type === "Empty Dependencies") {
       console.log("Empty Dependencies");
