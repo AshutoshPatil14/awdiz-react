@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
+
 function Home() {
   let nav = useNavigate();
 
@@ -11,6 +12,10 @@ function Home() {
         <button onClick={() => nav("/useEffect")}>useEffect</button>
         <button onClick={() => nav("/useState")}>useState</button>
         <button onClick={() => nav("/useParams")}>useParams</button>
+        <button onClick={() => nav("/conditionalRendering")}>Coditional Renderring</button>
+        <button onClick={() => nav("/styled-component")}>Styled Component</button>
+        <button onClick={() => nav("/greeting")}>Greeting</button>
+        <button onClick={() => nav("/fruits")}>Fruits list</button>
       </div>
     </div>
   );
