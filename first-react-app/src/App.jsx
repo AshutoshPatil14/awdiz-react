@@ -13,6 +13,7 @@ import ConditionalRendering from "./pages/02-08/conditionalRendering";
 import StyledComponent from "./pages/02-08/styledComponent";
 import Greeting from "./pages/02-08/greeting";
 import Fruits from "./pages/02-08/fruits";
+import DynamicStyling from "./pages/03-08/dynamicStyling";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -32,6 +33,7 @@ function App() {
         <Route path="/styled-component" element={<StyledComponent/>}/>
         <Route path="/greeting" element={<Greeting name='Ashutosh'/>}/>
         <Route path="/fruits" element={<Fruits/>}/>
+        <Route path="/dynamic-styling" element={<DynamicStyling/>}/>
 
       </Routes>
     </>

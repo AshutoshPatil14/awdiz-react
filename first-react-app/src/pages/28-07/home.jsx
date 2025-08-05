@@ -16,6 +16,7 @@ function Home() {
         <button onClick={() => nav("/styled-component")}>Styled Component</button>
         <button onClick={() => nav("/greeting")}>Greeting</button>
         <button onClick={() => nav("/fruits")}>Fruits list</button>
+        <button onClick={() => nav("/dynamic-styling")}>Dynamic Styling</button>
       </div>
     </div>
   );
