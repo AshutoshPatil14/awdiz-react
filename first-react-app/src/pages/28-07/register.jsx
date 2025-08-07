@@ -119,7 +119,7 @@ function Register() {
             <div style={{ color: "red" }}>{errors.confPassword}</div>
           )}
         </div>
-        <input type="submit"></input>
+        <button type="submit">Register</button>
       </form>
       <div>
         <h3>Name: {userDetails.name}</h3>

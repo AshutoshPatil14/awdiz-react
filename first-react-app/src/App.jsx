@@ -14,6 +14,8 @@ import StyledComponent from "./pages/02-08/styledComponent";
 import Greeting from "./pages/02-08/greeting";
 import Fruits from "./pages/02-08/fruits";
 import DynamicStyling from "./pages/03-08/dynamicStyling";
+import PageNotFound from "./pages/06-08/pageNotFound";
+import FakeStoreApi from "./pages/06-08/fakeStoreApi";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -29,12 +31,17 @@ function App() {
         <Route path="/useEffect" element={<UseEffect />} />
         <Route path="/useParams" element={<Products />} />
         <Route path="/useParams/:productID" element={<UseParams />} />
-        <Route path="/conditionalRendering" element={<ConditionalRendering />} />
-        <Route path="/styled-component" element={<StyledComponent/>}/>
-        <Route path="/greeting" element={<Greeting name='Ashutosh'/>}/>
-        <Route path="/fruits" element={<Fruits/>}/>
-        <Route path="/dynamic-styling" element={<DynamicStyling/>}/>
+        <Route
+          path="/conditionalRendering"
+          element={<ConditionalRendering />}
+        />
+        <Route path="/styled-component" element={<StyledComponent />} />
+        <Route path="/greeting" element={<Greeting name="Ashutosh" />} />
+        <Route path="/fruits" element={<Fruits />} />
+        <Route path="/dynamic-styling" element={<DynamicStyling />} />
+        <Route path="/fake-store-api" element={<FakeStoreApi />} />
 
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );

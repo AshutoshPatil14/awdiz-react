@@ -72,10 +72,10 @@ button,input[type = submit] {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover,input[type="submit"]:hover {
+button:hover{
   border-color: #646cff;
 }
-button:active,input[type="submit"]:active {
+button:active{
   background-color: #646cff;
   color: white;
 }
@@ -93,7 +93,59 @@ button:focus-visible{
   gap: 10px;
 }
 
+.sel-btn{
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.parent-card{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  max-height: 350px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: 10px;
+  width: 17%;
+}
+
+.card-img{
+  
+  background-color: #242424;
+  border-radius: 10px;
+  width: 95%;
+  min-height: 225px;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.card-img img{
+  align-self: center;
+  padding: 5px;
+  width: 70%;
+}
+
+.card-title{
+  color:gainsboro;
+  text-overflow: ellipsis;
+  max-height: 20px;
+}
+
+.card-price{
+  align-self: center;
+}
 
 @media (prefers-color-scheme: light) {
   :root {

@@ -17,6 +17,7 @@ function Home() {
         <button onClick={() => nav("/greeting")}>Greeting</button>
         <button onClick={() => nav("/fruits")}>Fruits list</button>
         <button onClick={() => nav("/dynamic-styling")}>Dynamic Styling</button>
+        <button onClick={() => nav("/fake-store-api")}>FakeStoreApi</button>
       </div>
     </div>
   );
