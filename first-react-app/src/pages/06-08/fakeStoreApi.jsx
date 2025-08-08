@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./fakeStoreApi.css";
 
 const FakeStoreApi = () => {
   const [products, setProducts] = useState([]);
@@ -16,14 +17,20 @@ const FakeStoreApi = () => {
   return (
     <>
       <h1>Welcome to the Fake Store</h1>
-      <div className="parent-card">
+      <div className="product-container">
         {products.map((product) => (
-          <div className="card" key={product.id}>
-            <div className="card-img">
+          <div className="product-card" key={product.id}>
+            <div className="product-image">
               <img src={product.image} alt={product.title} />
             </div>
-            <h3 className="card-title">{product.title}</h3>
-            <h4 className="card-price">£{product.price}</h4>
+            <div className="product-details">
+              <h3 className="product-title">{product.title}</h3>
+              <p className="product-price">£{product.price}</p>
+              <div className="product-buttons">
+                <button>Add to Cart</button>
+                <button>Buy Now</button>
+              </div>
+            </div>
           </div>
         ))}
       </div>
