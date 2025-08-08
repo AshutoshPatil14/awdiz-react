@@ -122,19 +122,22 @@ button:focus-visible{
 }
 
 .card-img{
-  
   background-color: #242424;
   border-radius: 10px;
   width: 95%;
   min-height: 225px;
+  display: flex;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
 }
 
 .card-img img{
-  align-self: center;
+  object-fit: contain;
   padding: 5px;
   width: 70%;
+  max-height: 215px;
+  display: block;
+  margin: 0 auto;
 }
 
 .card-title{
