@@ -8,6 +8,7 @@ function Navbar() {
         <button onClick={()=> {nav("/")}}>🏠 Home</button>
         <button onClick={()=> {nav("/login")}}>Login</button>
         <button onClick={()=> {nav("/register")}}>Register</button>
+        <button onClick={()=> {nav("/cart")}}>Cart 🛒</button>
     </>
   )
 }

@@ -16,6 +16,8 @@ import Fruits from "./pages/02-08/fruits";
 import DynamicStyling from "./pages/03-08/dynamicStyling";
 import PageNotFound from "./pages/06-08/pageNotFound";
 import FakeStoreApi from "./pages/06-08/fakeStoreApi";
+import SingleProductApi from "./pages/08-08/singleProductApi";
+import Cart from "./pages/08-08/cart";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -40,6 +42,11 @@ function App() {
         <Route path="/fruits" element={<Fruits />} />
         <Route path="/dynamic-styling" element={<DynamicStyling />} />
         <Route path="/fake-store-api" element={<FakeStoreApi />} />
+        <Route
+          path="/fake-store-api/:productId"
+          element={<SingleProductApi />}
+        />
+        <Route path="/cart" element={<Cart />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
