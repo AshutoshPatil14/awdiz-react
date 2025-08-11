@@ -18,6 +18,7 @@ import PageNotFound from "./pages/06-08/pageNotFound";
 import FakeStoreApi from "./pages/06-08/fakeStoreApi";
 import SingleProductApi from "./pages/08-08/singleProductApi";
 import Cart from "./pages/08-08/cart";
+import UseMemo from "./pages/10-08/useMemo";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -47,6 +48,8 @@ function App() {
           element={<SingleProductApi />}
         />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/useMemo" element={<UseMemo />} />
+
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
