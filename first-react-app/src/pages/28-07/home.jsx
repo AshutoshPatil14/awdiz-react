@@ -19,6 +19,10 @@ function Home() {
         <button onClick={() => nav("/dynamic-styling")}>Dynamic Styling</button>
         <button onClick={() => nav("/fake-store-api")}>FakeStoreApi</button>
         <button onClick={() => nav("/useMemo")}>useMemo</button>
+        <button onClick={() => nav("/useRef")}>useRef</button>
+        <button onClick={() => nav("/useCallback")}>useCallback</button>
+        <button onClick={() => nav("/useReducer")}>useReducer</button>
+
         
 
       </div>

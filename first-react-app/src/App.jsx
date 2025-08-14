@@ -19,6 +19,9 @@ import FakeStoreApi from "./pages/06-08/fakeStoreApi";
 import SingleProductApi from "./pages/08-08/singleProductApi";
 import Cart from "./pages/08-08/cart";
 import UseMemo from "./pages/10-08/useMemo";
+import UseRef from "./pages/13-08/useRef";
+import UseCallback from "./pages/13-08/useCallback";
+import UseReducer from "./pages/13-08/useReducer";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -49,6 +52,10 @@ function App() {
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/useMemo" element={<UseMemo />} />
+        <Route path="/useRef" element={<UseRef />} />
+        <Route path="/useCallback" element={<UseCallback />} />
+        <Route path="/useReducer" element={<UseReducer />} />
+
 
 
         <Route path="*" element={<PageNotFound />} />
