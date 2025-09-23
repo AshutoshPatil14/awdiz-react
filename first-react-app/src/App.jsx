@@ -22,6 +22,7 @@ import UseMemo from "./pages/10-08/useMemo";
 import UseRef from "./pages/13-08/useRef";
 import UseCallback from "./pages/13-08/useCallback";
 import UseReducer from "./pages/13-08/useReducer";
+import CardBox from "./pages/mypractice/CardBox";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -55,6 +56,7 @@ function App() {
         <Route path="/useRef" element={<UseRef />} />
         <Route path="/useCallback" element={<UseCallback />} />
         <Route path="/useReducer" element={<UseReducer />} />
+        <Route path="/mypractice/CardBox" element={<CardBox />} />
 
 
 

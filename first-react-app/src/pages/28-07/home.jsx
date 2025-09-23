@@ -22,7 +22,7 @@ function Home() {
         <button onClick={() => nav("/useRef")}>useRef</button>
         <button onClick={() => nav("/useCallback")}>useCallback</button>
         <button onClick={() => nav("/useReducer")}>useReducer</button>
-
+        <button onClick={() => nav("/mypractice/CardBox")}>CardBox</button>
         
 
       </div>
