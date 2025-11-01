@@ -15,7 +15,7 @@ function Register() {
     setErrors({ ...errors, [event.target.name]: "" });
   };
 
-  const Submit = (event) => {
+  const Submit = async (event) => {
     event.preventDefault();
 
     let newErrors = {};
@@ -33,6 +33,7 @@ function Register() {
       userDetails.password &&
       userDetails.confPassword
     ) {
+      
       alert(`Registeration success! \nWelcome aboard ${userDetails.name}! `);
       setUserDetails({ name: "", email: "", password: "", confPassword: "" });
     }
