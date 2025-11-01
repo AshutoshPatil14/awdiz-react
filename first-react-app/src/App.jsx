@@ -1,6 +1,7 @@
 // import { useState } from 'react'
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Home from "./pages/28-07/home";
 import Login from "./pages/28-07/login";
 import Register from "./pages/28-07/register";
@@ -23,6 +24,7 @@ import UseRef from "./pages/13-08/useRef";
 import UseCallback from "./pages/13-08/useCallback";
 import UseReducer from "./pages/13-08/useReducer";
 import CardBox from "./pages/mypractice/CardBox";
+
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -62,6 +64,7 @@ function App() {
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Toaster />
     </>
   );
 }

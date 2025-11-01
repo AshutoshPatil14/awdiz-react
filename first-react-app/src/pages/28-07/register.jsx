@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 function Register() {
   const [userDetails, setUserDetails] = useState({
@@ -22,20 +24,25 @@ function Register() {
     if (!userDetails.name) newErrors.name = "Name is required";
     if (!userDetails.email) newErrors.email = "Email is required";
     if (!userDetails.password) newErrors.password = "Password is required";
-    if (!userDetails.confPassword)
-      newErrors.confPassword = "Confirmed Password is required";
+    if (!userDetails.confPassword) newErrors.confPassword = "Confirmed Password is required";
 
     setErrors(newErrors);
 
-    if (
-      userDetails.name &&
-      userDetails.email &&
-      userDetails.password &&
-      userDetails.confPassword
-    ) {
-      
-      alert(`Registeration success! \nWelcome aboard ${userDetails.name}! `);
-      setUserDetails({ name: "", email: "", password: "", confPassword: "" });
+    if (userDetails.name && userDetails.email && userDetails.password && userDetails.confPassword) {
+      try {
+        const response = await axios.post(
+          "http://localhost:3000/api/v1/auth/register",
+          userDetails
+        );
+        if (response.status === 201) {
+          toast.success(`Registeration success! \nWelcome aboard ${userDetails.name}! `);
+          setUserDetails({ name: "", email: "", password: "", confPassword: "" });
+        } else {
+          setErrors(response.data.errors);
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
     }
   };
 
@@ -79,8 +86,8 @@ function Register() {
           onChange={InputHandler}
         />
         {errors.email && <div style={{ color: "red" }}>{errors.email}</div>}
-        <div style={{ display: "flex", flexDirection:"column" }}>
-          <div style={{display:"flex"}}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex" }}>
             <input
               id="password"
               value={userDetails.password}
@@ -94,12 +101,10 @@ function Register() {
               Show
             </button>
           </div>
-          {errors.password && (
-            <div style={{ color: "red" }}>{errors.password}</div>
-          )}
+          {errors.password && <div style={{ color: "red" }}>{errors.password}</div>}
         </div>
-        <div style={{ display: "flex", flexDirection:"column" }}>
-          <div style={{display:"flex"}}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex" }}>
             <input
               id="confPassword"
               value={userDetails.confPassword}
@@ -108,17 +113,11 @@ function Register() {
               placeholder="Confirm your password"
               onChange={InputHandler}
             />
-            <button
-              id="showConfirnPasswordBtn"
-              type="button"
-              onClick={ShowConfirmPassword}
-            >
+            <button id="showConfirnPasswordBtn" type="button" onClick={ShowConfirmPassword}>
               Show
             </button>
           </div>
-          {errors.confPassword && (
-            <div style={{ color: "red" }}>{errors.confPassword}</div>
-          )}
+          {errors.confPassword && <div style={{ color: "red" }}>{errors.confPassword}</div>}
         </div>
         <button type="submit">Register</button>
       </form>
