@@ -24,10 +24,34 @@ import UseRef from "./pages/13-08/useRef";
 import UseCallback from "./pages/13-08/useCallback";
 import UseReducer from "./pages/13-08/useReducer";
 import CardBox from "./pages/mypractice/CardBox";
+import api from "./services/axiosConfig.js";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 
 function App() {
   // const [count, setCount] = useState(0)
+
+  const user = useSelector((state) => state.auth.user);
+
+async function getUserData(){
+    try {
+      const response = await api.get("/auth/get-current-user");
+      console.log("user data", response.data)
+    } catch (error) {
+      console.log("error", error)
+    }
+  };
+
+  useEffect(() => {
+    if(user){
+      // If user is already authenticated, no need to fetch again
+      console.log(user, "user already authenticated");
+    }else{
+      getUserData();
+    }
+  }, [user]);
+
 
   return (
     <>

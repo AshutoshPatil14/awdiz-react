@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import api from "../../services/axiosConfig.js";
 
 function Register() {
   const [userDetails, setUserDetails] = useState({
@@ -30,10 +30,7 @@ function Register() {
 
     if (userDetails.name && userDetails.email && userDetails.password && userDetails.confPassword) {
       try {
-        const response = await axios.post(
-          "http://localhost:3000/api/v1/auth/register",
-          userDetails
-        );
+        const response = await api.post("/auth/register", userDetails);
         if (response.status === 201) {
           toast.success(`Registeration success! \nWelcome aboard ${userDetails.name}! `);
           setUserDetails({ name: "", email: "", password: "", confPassword: "" });

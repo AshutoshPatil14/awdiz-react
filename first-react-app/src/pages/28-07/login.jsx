@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from "../../redux/slices/authSlice";
+import api from "../../services/axiosConfig";
 
 function Login() {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function Login() {
     // If validation passes, proceed with API call
     if (Object.keys(newErrors).length === 0) {
       try {
-        const response = await axios.post("http://localhost:3000/api/v1/auth/login", userDetails);
+        const response = await api.post("/auth/login", userDetails);
 
         if (response.status === 200) {
           // Store user data in Redux
