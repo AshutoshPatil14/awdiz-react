@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from "../../redux/slices/authSlice";
 import api from "../../services/axiosConfig";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const dispatch = useDispatch();
+  const router = useNavigate();
   const { user, isAuthenticated } = useSelector((state) => state.auth);
 
   const [userDetails, setUserDetails] = useState({ email: "", password: "" });
@@ -57,6 +59,12 @@ function Login() {
       setShowPassword("password");
     }, 1500);
   };
+
+  useEffect(() => {
+    if (user.userId) {
+      router("/");
+    } 
+  }, [user]);
 
   return (
     <div>

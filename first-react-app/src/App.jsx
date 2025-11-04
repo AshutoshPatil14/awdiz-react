@@ -26,32 +26,35 @@ import UseReducer from "./pages/13-08/useReducer";
 import CardBox from "./pages/mypractice/CardBox";
 import api from "./services/axiosConfig.js";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { loginSuccess } from "./redux/slices/authSlice.js";
 
 function App() {
   // const [count, setCount] = useState(0)
-
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
 
-async function getUserData(){
+  async function getUserData() {
     try {
       const response = await api.get("/auth/get-current-user");
-      console.log("user data", response.data)
+      console.log("user data", response.data);
+
+      if (response.status === 200) {
+        dispatch(loginSuccess(response.data.user));
+      }
     } catch (error) {
-      console.log("error", error)
+      console.log("error", error);
     }
-  };
+  }
 
   useEffect(() => {
-    if(user){
+    if (user) {
       // If user is already authenticated, no need to fetch again
       console.log(user, "user already authenticated");
-    }else{
+    } else {
       getUserData();
     }
   }, [user]);
-
 
   return (
     <>
@@ -64,27 +67,19 @@ async function getUserData(){
         <Route path="/useEffect" element={<UseEffect />} />
         <Route path="/useParams" element={<Products />} />
         <Route path="/useParams/:productID" element={<UseParams />} />
-        <Route
-          path="/conditionalRendering"
-          element={<ConditionalRendering />}
-        />
+        <Route path="/conditionalRendering" element={<ConditionalRendering />} />
         <Route path="/styled-component" element={<StyledComponent />} />
         <Route path="/greeting" element={<Greeting name="Ashutosh" />} />
         <Route path="/fruits" element={<Fruits />} />
         <Route path="/dynamic-styling" element={<DynamicStyling />} />
         <Route path="/fake-store-api" element={<FakeStoreApi />} />
-        <Route
-          path="/fake-store-api/:productId"
-          element={<SingleProductApi />}
-        />
+        <Route path="/fake-store-api/:productId" element={<SingleProductApi />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/useMemo" element={<UseMemo />} />
         <Route path="/useRef" element={<UseRef />} />
         <Route path="/useCallback" element={<UseCallback />} />
         <Route path="/useReducer" element={<UseReducer />} />
         <Route path="/mypractice/CardBox" element={<CardBox />} />
-
-
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>

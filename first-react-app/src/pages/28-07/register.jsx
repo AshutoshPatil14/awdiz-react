@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import api from "../../services/axiosConfig.js";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Register() {
+  const router = useNavigate();
+
+  const { user } = useSelector((state) => state.auth);
+
   const [userDetails, setUserDetails] = useState({
     name: "",
     email: "",
@@ -60,6 +66,12 @@ function Register() {
       setShowConfirmPassword("password");
     }, 1500);
   };
+
+  useEffect(() => {
+    if (user.userId) {
+      router("/");
+    }
+  }, [user]);
 
   return (
     <div>

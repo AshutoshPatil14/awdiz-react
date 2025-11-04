@@ -16,6 +16,7 @@ export const authSlice = createSlice({
       state.error = null;
     },
     loginSuccess: (state, action) => {
+      console.log(action.payload, "action.payload");
       state.loading = false;
       state.isAuthenticated = true;
       state.user = action.payload;
@@ -26,14 +27,13 @@ export const authSlice = createSlice({
     },
     logout: (state) => {
       state.user = null;
-      state.isAuthenticated = false;
-      state.error = null;
     },
     registerStart: (state) => {
       state.loading = true;
       state.error = null;
     },
     registerSuccess: (state, action) => {
+      console.log(action.payload, "action.payload");
       state.loading = false;
       state.isAuthenticated = true;
       state.user = action.payload;
