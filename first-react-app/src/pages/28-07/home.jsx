@@ -6,8 +6,10 @@ function Home() {
 
   return (
     <div>
+      <br />
       <h1>This is the Homepage</h1>
       <p>Welcome to the web application</p>
+      <br />
       <div className="sel-btn">
         <button onClick={() => nav("/useEffect")}>useEffect</button>
         <button onClick={() => nav("/useState")}>useState</button>

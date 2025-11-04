@@ -68,7 +68,7 @@ function Register() {
   };
 
   useEffect(() => {
-    if (user.userId) {
+    if (user?.userId) {
       router("/");
     }
   }, [user]);
