@@ -1,8 +1,17 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { logout } from "../../redux/slices/authSlice";
+import { Toaster } from 'react-hot-toast';
 
 function Home() {
-  let nav = useNavigate();
+  const nav = useNavigate();
+  const dispatch = useDispatch();
+  const { user, isAuthenticated } = useSelector((state) => state.auth);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    nav('/login'); // Redirect to login page after logout
+  };
 
   return (
     <div>
@@ -25,9 +34,17 @@ function Home() {
         <button onClick={() => nav("/useCallback")}>useCallback</button>
         <button onClick={() => nav("/useReducer")}>useReducer</button>
         <button onClick={() => nav("/mypractice/CardBox")}>CardBox</button>
-        
-
+        <button onClick={handleLogout}>Logout</button>
       </div>
+      <br />
+      {isAuthenticated && user && (
+        <div className="welcome-message">
+          <h2>Welcome, {user.name || "User"}!</h2>
+          <p>You are successfully logged in.</p>
+        </div>
+      )}
+
+      <Toaster />
     </div>
   );
 }
