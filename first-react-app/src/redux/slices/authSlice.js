@@ -7,6 +7,7 @@ const initialState = {
   error: null
 };
 
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
