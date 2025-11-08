@@ -28,6 +28,7 @@ import api from "./services/axiosConfig.js";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from "./redux/slices/authSlice.js";
+import AddProduct from "./pages/AddProduct";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -80,6 +81,7 @@ function App() {
         <Route path="/useCallback" element={<UseCallback />} />
         <Route path="/useReducer" element={<UseReducer />} />
         <Route path="/mypractice/CardBox" element={<CardBox />} />
+        <Route path="/add-product" element={<AddProduct />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>

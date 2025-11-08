@@ -47,7 +47,7 @@ function Register() {
         const response = await api.post("/auth/register", userDetails);
         if (response.status === 201) {
           toast.success(`Registeration success! \nWelcome aboard ${userDetails.name}! `);
-          setUserDetails({ name: "", email: "", password: "", confPassword: "" });
+          setUserDetails({ role: "", name: "", email: "", password: "", confPassword: "" });
         } else {
           setErrors(response.data.errors);
         }

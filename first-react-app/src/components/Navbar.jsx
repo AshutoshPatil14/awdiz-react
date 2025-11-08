@@ -9,7 +9,7 @@ function Navbar() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
 
-  console.log(user)
+  console.log(user);
   const handleLogout = async () => {
     try {
       dispatch(logout());
@@ -50,13 +50,32 @@ function Navbar() {
           Register
         </button>
       )}
-      {user === "user" && (
+      {user?.role === "user" && (
         <button
           onClick={() => {
             nav("/cart");
           }}
         >
           Cart 🛒
+        </button>
+      )}
+
+      {user?.role === "seller" && (
+        <button
+          onClick={() => {
+            nav("/add-product");
+          }}
+        >
+          Add Product
+        </button>
+      )}
+      {user?.role === "seller" && (
+        <button
+          onClick={() => {
+            nav("/view-products");
+          }}
+        >
+          View Products
         </button>
       )}
 

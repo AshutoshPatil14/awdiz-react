@@ -75,6 +75,7 @@ function Login() {
       <form onSubmit={Submit}>
 
         <select name="role" id="role" value={userDetails.role} onChange={InputHandler}>
+          <option value="">Select your role</option>
           <option value="user">User</option>
           <option value="seller">Seller</option>
           <option value="admin">Admin</option>
