@@ -10,6 +10,7 @@ function Register() {
   const { user } = useSelector((state) => state.auth);
 
   const [userDetails, setUserDetails] = useState({
+    role: "",
     name: "",
     email: "",
     password: "",
@@ -27,14 +28,21 @@ function Register() {
     event.preventDefault();
 
     let newErrors = {};
+    if (!userDetails.role) newErrors.role = "Role is required";
     if (!userDetails.name) newErrors.name = "Name is required";
     if (!userDetails.email) newErrors.email = "Email is required";
     if (!userDetails.password) newErrors.password = "Password is required";
     if (!userDetails.confPassword) newErrors.confPassword = "Confirmed Password is required";
 
     setErrors(newErrors);
-
-    if (userDetails.name && userDetails.email && userDetails.password && userDetails.confPassword) {
+    console.log(userDetails)
+    if (
+      userDetails.role &&
+      userDetails.name &&
+      userDetails.email &&
+      userDetails.password &&
+      userDetails.confPassword
+    ) {
       try {
         const response = await api.post("/auth/register", userDetails);
         if (response.status === 201) {
@@ -77,6 +85,12 @@ function Register() {
     <div>
       <h1>This is the Register Page</h1>
       <form onSubmit={Submit}>
+        <select name="role" id="role" value={userDetails.role} onChange={InputHandler}>
+          <option value="user">User</option>
+          <option value="seller">Seller</option>
+          <option value="admin">Admin</option>
+        </select>
+
         <input
           id="name"
           value={userDetails.name}

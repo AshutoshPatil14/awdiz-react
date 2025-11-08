@@ -11,7 +11,7 @@ function Login() {
   const router = useNavigate();
   const { user, isAuthenticated } = useSelector((state) => state.auth);
 
-  const [userDetails, setUserDetails] = useState({ email: "", password: "" });
+  const [userDetails, setUserDetails] = useState({ role: "", email: "", password: "" });
   const [errors, setErrors] = useState({});
 
   const InputHandler = (event) => {
@@ -24,6 +24,7 @@ function Login() {
 
     // Form validation
     let newErrors = {};
+    // if (!userDetails.role) newErrors.role = "Role is required";
     if (!userDetails.email) newErrors.email = "Please enter your email";
     if (!userDetails.password) newErrors.password = "Please enter your password";
 
@@ -32,6 +33,7 @@ function Login() {
     // If validation passes, proceed with API call
     if (Object.keys(newErrors).length === 0) {
       try {
+        
         const response = await api.post("/auth/login", userDetails);
 
         if (response.status === 200) {
@@ -71,6 +73,14 @@ function Login() {
       <h1>This is the Login Page</h1>
 
       <form onSubmit={Submit}>
+
+        <select name="role" id="role" value={userDetails.role} onChange={InputHandler}>
+          <option value="user">User</option>
+          <option value="seller">Seller</option>
+          <option value="admin">Admin</option>
+        </select>
+        {errors.role && <div style={{ color: "red" }}>{errors.role}</div>}
+
         <input
           name="email"
           id="email"

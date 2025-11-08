@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../redux/slices/authSlice";
 import api from "../services/axiosConfig";
@@ -7,7 +7,9 @@ import api from "../services/axiosConfig";
 function Navbar() {
   const nav = useNavigate();
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.user);
 
+  console.log(user)
   const handleLogout = async () => {
     try {
       dispatch(logout());
@@ -30,34 +32,43 @@ function Navbar() {
       >
         🏠 Home
       </button>
-      <button
-        onClick={() => {
-          nav("/login");
-        }}
-      >
-        Login
-      </button>
-      <button
-        onClick={() => {
-          nav("/register");
-        }}
-      >
-        Register
-      </button>
-      <button
-        onClick={() => {
-          nav("/cart");
-        }}
-      >
-        Cart 🛒
-      </button>
-      <button
-        onClick={() => {
-          handleLogout();
-        }}
-      >
-        Logout
-      </button>
+      {!user && (
+        <button
+          onClick={() => {
+            nav("/login");
+          }}
+        >
+          Login
+        </button>
+      )}
+      {!user && (
+        <button
+          onClick={() => {
+            nav("/register");
+          }}
+        >
+          Register
+        </button>
+      )}
+      {user === "user" && (
+        <button
+          onClick={() => {
+            nav("/cart");
+          }}
+        >
+          Cart 🛒
+        </button>
+      )}
+
+      {user && (
+        <button
+          onClick={() => {
+            handleLogout();
+          }}
+        >
+          Logout
+        </button>
+      )}
     </>
   );
 }

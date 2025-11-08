@@ -53,7 +53,16 @@ form {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"]
+{
+  padding: 10px;
+  margin: 0 7px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+select {
   padding: 10px;
   margin: 0 7px;
   border: 1px solid #ccc;
@@ -62,7 +71,8 @@ input[type="password"] {
 }
 
 button,
-input[type="submit"] {
+input[type="submit"],
+select {
   border-radius: 8px;
   border: 2px solid transparent;
   padding: 0.6em 1.2em;
@@ -247,7 +257,7 @@ button:focus-visible {
 }
 
 .cart-product-card:hover {
-  border-color: #646cff ;
+  border-color: #646cff;
 }
 
 .cart-product-image {
@@ -272,7 +282,7 @@ button:focus-visible {
 .cart-product-details {
   flex: 1;
   display: flex;
-  justify-content:left;
+  justify-content: left;
   flex-direction: column;
   gap: 10px;
 }
@@ -294,7 +304,7 @@ button:focus-visible {
 .cart-product-buttons {
   display: flex;
   align-items: baseline;
-  justify-content:flex-end;
+  justify-content: flex-end;
   gap: 12px;
 }
 
@@ -313,7 +323,7 @@ button:focus-visible {
   color: #fff;
 }
 
-.cart-product-container p{
+.cart-product-container p {
   font-size: 18px;
 }
 
