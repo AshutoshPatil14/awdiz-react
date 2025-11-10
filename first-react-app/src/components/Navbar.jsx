@@ -63,7 +63,7 @@ function Navbar() {
       {user?.role === "seller" && (
         <button
           onClick={() => {
-            nav("/add-product");
+            nav("/seller/add-product");
           }}
         >
           Add Product

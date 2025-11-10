@@ -42,6 +42,7 @@ function App() {
 
       if (response.status === 200) {
         dispatch(loginSuccess(response.data.user));
+        console.log("User object after loginSuccess:", response.data.user); // Added this line
       }
     } catch (error) {
       console.log("error", error);
@@ -81,7 +82,7 @@ function App() {
         <Route path="/useCallback" element={<UseCallback />} />
         <Route path="/useReducer" element={<UseReducer />} />
         <Route path="/mypractice/CardBox" element={<CardBox />} />
-        <Route path="/add-product" element={<AddProduct />} />
+        <Route path="/seller/add-product" element={<AddProduct />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
